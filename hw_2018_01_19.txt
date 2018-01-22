@@ -1,0 +1,59 @@
+вывод всех символов	
+
+for (int i = -128; i <= 255; i++)
+	{
+		printf("Simvol '%c' imeet kod %d\n", i, i);
+	}
+
+вывод наоборот всех больших букв
+	
+for (i = 90; i >=65; i--)
+	{
+		printf("%c\t", i);
+	}
+
+	printf("\n\n");
+
+вывод всех маленьких латинских букв
+	
+
+for (i = 122; i >= 97; i--)
+	{
+		printf("%c\t", i);
+	}
+
+/////////////////////////////////
+
+Zadacha 4, str. 95
+
+int IsLetter(char x);
+
+
+int main()
+{
+	char c1 = '+', c2 = ';', c3 = 'z';
+	printf("a - %d \n", IsLetter('a'));
+	printf("G - %d \n", IsLetter('G'));
+	printf("5 - %d \n", IsLetter('5'));
+	printf("+ - %d \n", IsLetter(c1));
+	printf("; - %d \n", IsLetter(c2));
+	printf("z - %d \n", IsLetter(c3));
+	
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+int IsLetter(char x)
+{
+	if (x >= 'a' && x <= 'z' || x >= 'A' && x <= 'Z')
+	{
+		return 1;
+	}
+	else return 0;
+}
+
+/////////////////////////////////
+
+Zadacha 5, str. 95
+

@@ -1,0 +1,143 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<String.h>
+
+int main()
+{
+	char x[40] = "hghghg 6454645 ggjhj56 5656 jhjhj";
+	char * p;
+	int k = 0, o = 0;
+
+	//printf("\nVveditr stroku x:  ");
+	//fflush(stdin);
+	//gets_s(x);
+
+	p = strtok(x, " ");
+
+	while(p != NULL)
+	{
+		printf("Leksema p : %s\n", p);
+		printf("Kolichestvo simvolov v lekseme: %s ravno %d\n", p, strlen(p));
+		printf("Soderjimoe stroki x: %s\n", x);
+		
+
+		//работаем с выделенной лексемой(подстрокой)
+		for(int j = 0; j < strlen(p); j++)
+		{
+			if (p[j] >= 48 && p[j] <= 57)
+			{
+				k++;
+				if(k == strlen(p))
+				{
+					o++;
+					printf("\no = %d", o);
+				}
+			}
+		}
+
+		printf("\n");
+		//printf("\no = %d", o);
+		printf("\n---------------------------------------\n\n");
+		p = strtok(NULL, " ");
+	}
+
+	for(int i = 0; i < 40; i++)
+	{
+		printf("%-4c", x[i]);
+	}
+
+	
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+
+
+////////////////////////////////
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<String.h>
+
+int main()
+{ 
+	char x[40] = "Mama 6666 ramu 77 balkone u babushki";
+	char * p, * p1;
+	int k = 0, o = 0;
+	
+	printf("\n======================================================================\n");
+	for(int i = 0; i < 40; i++)
+	{
+		printf("%-4c", x[i]);
+	}
+	printf("\n---------------------------------------------------------------------\n");
+	for(int i = 0; i < 40; i++)
+	{
+		printf("%-4d", x[i]);
+	}
+	printf("\n======================================================================\n\n\n\n");
+
+
+
+	p = strtok_s(x, " ", &p1);
+
+	while(p != NULL)
+	{
+		printf("Leksema p : %s\n", p);
+		printf("Kolichestvo simvolov v lekseme: %s ravno %d\n", p, strlen(p));
+		printf("Ostavshaiasia chast stroki x: %s\n", p1);
+		printf("---------------------------------------\n\n");
+
+		//работаем с выделенной лексемой(подстрокой)
+
+		p = strtok_s(NULL, " ", &p);
+
+		for(int j = 0; j < strlen(p); j++)
+		{
+			if (p[j] >= 48 && p[j] <= 57)
+			{
+				k++;
+				if(k == strlen(p))
+				{
+					o++;
+					printf("\no = %d", o);
+				}
+			}
+					
+		printf("\no = %d", o);
+		printf("\n---------------------------------------\n\n");
+		}
+	}
+
+
+
+
+	printf("\n\n\n======================================================================\n");
+	for(int i = 0; i < 40; i++)
+	{
+		printf("%-4c", x[i]);
+	}
+	printf("\n-----------------------------------------------------------------------------\n");
+	for(int i = 0; i < 40; i++)
+	{
+		printf("%-4d", x[i]);
+	}
+	printf("\n======================================================================\n\n\n\n");
+
+
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}

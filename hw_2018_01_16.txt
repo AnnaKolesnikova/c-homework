@@ -1,0 +1,217 @@
+Zadacha 5, str.98
+
+int main()
+{
+	char x[100];
+	int i;
+
+	printf("\nVvedite stroku x: ");
+	fflush(stdin);
+	gets(x);
+	
+	for(i = 0; x[i] != '\0';  i++);
+	
+	printf("\n\nKolichestvo simvolov v stroke: %d\n", i);
+
+	for(x[i] != '\0'; i >=0 ; i--)
+	{
+		printf("\nStroka naoborot: %c", x[i]);
+	}
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+//////////////////////////////
+
+Zadacha 6, str.98
+
+int main()
+{
+	char x[100], y[100];
+	int i, j;
+
+	printf("\nVveditr stroku: x ");
+	fflush(stdin);
+	gets_s(x);
+
+	for (i = 0; x[i] != 0; i++);
+
+	printf("\nKolichestvo simvolov s stroke: %d", i);
+
+	j = i - 1;
+
+	for (i = 0; i <= j; i++)
+	{
+		y[j - i] = x[i];
+	}
+	y[j + 1] = '\0';
+
+	printf("\n");
+	//printf("\nStroka naoborot: %c", y);
+	puts(y);
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+//////////////////////////////
+
+Zadacha 7, str.98
+
+int main()
+{
+	char x[100];
+	int i;
+
+	printf("\nVveditr stroku: x ");
+	fflush(stdin);
+	gets_s(x);
+
+	for (i = 0; x[i] != '\0'; i++);
+
+	printf("\nKolichestvo simvolov s stroke: %d", i);
+
+	for (i = 0; x[i] != '\0'; i++)
+	{
+		if (x[i] == 'a')
+		{
+			x[i] = '!';
+		}
+	}
+
+	printf("\n");
+	puts(x);
+
+
+	printf("\n");
+	//printf("\nStroka naoborot: %c", y);
+	//puts(y);
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+//////////////////////////////
+
+Zadacha 8, str.98
+
+int main()
+{
+	char x[100], buf;
+	int i, j, k = 0;
+
+	printf("\nVveditr stroku x:  ");
+	fflush(stdin);
+	gets_s(x);
+
+	for (i = 0; x[i] != '\0'; i++);
+
+	printf("\nKolichestvo simvolov s stroke: %d", i);
+
+	j = i - 1;
+
+	for (i = 0; x[i] != '\0'; i++)
+	{
+		if (x[i] == 'a')
+		{
+			k++;
+		}
+		buf = x[0];
+		x[0] = x[j];
+		x[j] = buf;
+ 	}
+
+	printf("\n");
+	printf("\nKolichestvo bukv 'a'= %d", k);
+	printf("\n");
+	puts(x);
+	printf("\n");
+	//printf("\nStroka naoborot: %c", y);
+	//puts(y);
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+
+//////////////////////////////
+
+Zadacha 9, str.98
+
+int main()
+{
+	char x[100];
+	int i, k = 0;
+
+	printf("\nVveditr stroku x:  ");
+	fflush(stdin);
+	gets_s(x);
+
+	for (i = 0; x[i] != '\0'; i++)
+	{
+		if ((x[i] != ' ' && x[i + 1] == ' ') || (x[i] != ' ' && x[i + 1] == '\0'))
+		{
+			k++;
+		}
+	}
+
+	printf("\n");
+	printf("\nKolichestvo slov v stroke = %d", k);
+	printf("\n");
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+//////////////////////////////
+
+int main()
+{
+	char x[40] = "hghghg 6454645 ggjhj56 5656 jhjhj";
+	char * p;
+	int k;
+
+	//printf("\nVveditr stroku x:  ");
+	//fflush(stdin);
+	//gets_s(x);
+
+	p = strtok(x, " ");
+
+	while(p != NULL)
+	{
+		printf("Leksema p : %s\n", p);
+		printf("Kolichestvo simvolov v lekseme: %s ravno %d\n", p, strlen(p));
+		printf("Soderjimoe stroki x: %s\n", x);
+		printf("---------------------------------------\n\n");
+
+		//работаем с выделенной лексемой(подстрокой)
+
+		p = strtok(NULL, " ");
+	}
+
+	for(int i = 0; i < 40; i++)
+	{
+		printf("%-4c", x[i]);
+	}
+
+		
+	for(int i = 0; i < 40; i++)
+	{
+		if (x[i] )
+		{
+
+		}
+	}
+
+
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}

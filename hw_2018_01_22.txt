@@ -1,0 +1,200 @@
+Zadacha 10, str.98 //5.2 объ€вление символьной строки
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<locale.h>
+
+char *StrCopy(char*s1, char*s2);	//функци€ присвоени€ строк
+char *StrCopy(char*s1, char*s2)
+{
+	int i = 0;
+	do
+	{
+		s1[i] = s2[i];				//крпируем все символы из s2 в s1
+	} 
+	while (s1[i++] != '\0');		//пока не дойдЄм до \0
+	return s1;						// возвращаем указатель на строку
+}
+
+int main()
+{
+	char str1[20] = "First string";		//создаем две строки
+	char str2[20] = "Second string";	//создаем две строки
+
+	printf("Before copy :\n");			//ввод строк до копировани€0
+	printf("str1 - %s\n", str1);
+	printf("str2 - %s\n", str2);
+
+	StrCopy(str1, str2);				//копируем 2 строку в 1
+
+	printf("\nAfter copy :\n");			//вывод строки после копировани€
+	printf("str1 - %s\n", str1);
+	printf("str2 - %s\n", str2);
+
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+////////////////////////////////////////
+
+Zadacha 11, str.99
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<String.h>
+
+char *dobav(char *s1, char *s2);
+char *dobav(char *s1, char *s2)
+{
+	int k = strlen(s1);
+	int i = 0;
+	do
+	{
+		s1[k++] = s2[i];
+	}
+	while (s2[i++]!= '\0');
+	//s1 = strcat(s1, s2);
+	return s1;
+}
+
+int main()
+{
+	char str1[30] = "First string";
+	char str2[30] = "Second string";
+
+	printf("\n\nStroki do dobavlenija: \n");
+	printf("\nstr1 - %s", str1);
+	printf("\nstr2 - %s", str2);
+
+	dobav(str1, str2);
+
+	printf("\n\nStroki posle dobavlenija: \n");
+	printf("\nstr1 - %s", str1);
+	printf("\nstr2 - %s", str2);
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+////////////////////////////////////////
+
+Zadacha 12, str.99
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<String.h>
+
+int StrLength(char *str);
+int StrLength(char *str)
+{
+	int i = 0;
+	while (str[i]!='\0')			//пока очередной символ не равен \0
+	{
+		i++;
+	}
+	return i;
+}
+
+
+int main()
+{
+	char *sptr = "String pointer";				    //создаем строку через указатель
+	char sarr[] = "String array";					//создаем строку как массив???
+	char csarr[] = { 'a','r','r','a','y','\0' };	//создаем строку как массив???
+
+
+	printf("\nABCDEF - %d\n", StrLength("ABCDEF"));	//вывод длины строк
+
+	printf("\nString pointer - %d\n", StrLength(sptr));	//вывод длины строк
+
+	printf("\nString Array - %d\n", StrLength(sarr));	//вывод длины строк
+
+	printf("\narray - %d\n", StrLength(csarr));	//вывод длины строк
+
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+////////////////////////////////////////
+
+Zadacha 13, str.100
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<String.h>
+
+int srav(char *x, char *y);
+int srav(char *x, char *y)
+{
+	for (int k = 0; x[k] || y[k]; k++)
+	{
+		if (x[k] > y[k])
+		{
+			return 1;
+		}
+		if (x[k] < y[k])
+		{
+			return -1;
+		}
+	}
+	return 0;
+}
+
+
+int main()
+{
+	char x[100], y[100];
+	int i;
+	puts("\nVvedite stroku: ");
+	gets_s(x);
+	puts("\nVvedite stroku: ");
+	gets_s(y);
+
+	i = srav(x, y);
+
+	if (i == 0)
+	{
+		printf("\nStroki odinakovye!!! == %d", i);
+	}
+	if (i == 1)
+	{
+		printf("\nV 1-oj str est simvol > ");
+	}
+	if (i == -1)
+	{
+		printf("\nVo 2-oj str est simvol >");
+	}
+
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+
+
+////////////////////////////////////////
+
+
+
+
+

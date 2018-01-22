@@ -1,0 +1,163 @@
+///////NoK
+
+int main()
+{
+	int a, b, n, nod, nok;
+
+	printf("\nVvedite dva chisla a i b:  ");
+	scanf_s("%d %d", &a, &b);
+
+	if (a <= 0 || b <= 0)
+	{
+		printf("\nVvedite drugie chisla: ");
+	}
+
+	nok = 0;
+
+	n = (a > b) ? b : a;
+
+	while (nok == 0)
+	{
+		nok = ((n % a == 0) && (n % b == 0)) ? n : 0;
+		n++;
+	}
+
+	printf("\nnok = %d", nok);
+
+	printf("\n\t\t\tThe end");
+	_getch();
+	return 0;
+}
+
+///////////////////////
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<stdio.h>
+
+void vvod_mass(int a[], int k); //prototip funkcii - ukaz.tipy paramrtrov i imena parametrov
+void vvod_mass(int a[], int k)	//zagolovok funkcii - mozno ukazyvat tolko tipy (no luchshe i imena)
+{
+	for (int i = 0; i < k; i++)
+	{
+		a[i] = rand() % 999;
+	}
+}
+
+void vivod_mass(int a[], int k);
+void vivod_mass(int a[], int k)
+{
+	for (int i = 0; i < k; i++)
+	{
+		printf("%d ", a[i]);
+	}
+}
+
+void sort_vozr(int a[], int b[], int k);
+void sort_vozr(int a[], int b[], int k)
+{
+	for (int i = 0; i < k; i++)
+	{
+		b[i] = a[i];
+	}
+
+	for (int j = 1; j < k; j++)
+	{
+		for (int i = 0; i < k - j; i++)
+		{
+			if (b[i] > b[i + 1])
+			{
+				int buf = b[i];
+				b[i] = b[i + 1];
+				b[i + 1] = buf;
+			}
+		}
+	}
+}
+
+void sort_ubiv(int a[], int b[], int k);
+void sort_ubiv(int a[], int b[], int k)
+{
+	for (int i = 0; i < k; i++)
+	{
+		b[i] = a[i];
+	}
+
+	for (int j = 1; j < k; j++)
+	{
+		for (int i = 0; i < k - j; i++)
+		{
+			if (b[i] < b[i + 1])
+			{
+				int buf = b[i];
+				b[i] = b[i + 1];
+				b[i + 1] = buf;
+			}
+		}
+	}
+}
+
+void summa_kol(int a[], int k, int p);
+void summa_kol(int a[], int k, int p)
+{
+	for (int i = 0; i < k; i++)
+	{
+		int p = 0;
+		while (a[i] != 0)
+		{
+			int buf = a[i] % 10;
+			p++;
+			a[i] = a[i] / 10;
+			a[i] = buf;
+		}
+	}
+		
+}
+
+void vivod_count(int a[], int k, int p);
+void vivod_count(int a[], int k, int p)
+{
+	for (int i = 0; i < k; i++)
+	{
+		printf("\n%d ", p);
+	}
+}
+
+int main ()
+{
+	srand(time(NULL));
+	const int N = 100;
+	int x[N], x_copy[N], n, c = 0;
+
+	do
+	{
+		printf("\n\nVvedite razmer massiva ot 1 do %d: \n\n", N);
+		scanf_s("%d", &n);
+	} 
+	while (n < 1 || n > N);
+
+	vvod_mass(x, n);
+	printf("\n\nSoderzhimoe massiva x: \n\n");
+	vivod_mass(x, n);
+
+	sort_vozr(x, x_copy, n);
+	printf("\n\nSoderzhimoe otsortirovannogo po vozrastaniju massiva: \n\n");
+	vivod_mass(x_copy, n);
+
+	sort_ubiv(x, x_copy, n);
+	printf("\n\nSoderzhimoe otsortirovannogo po ubyvaniju massiva: \n\n");
+	vivod_mass(x_copy, n);
+
+	summa_kol(x, n, c);
+	printf("\n\nSoderzhimoe otsortirovannogo po ubyvaniju massiva: \n\n");
+	vivod_count(x, n, c);
+
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}

@@ -194,7 +194,44 @@ int main()
 
 ////////////////////////////////////////
 
+#define _CRT_SECURE_NO_WARNINGS
 
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<String.h>
+
+
+
+void main()
+{
+	int *ptr, n, i;
+	
+	printf("\nVvedite razmer massiva: ");
+	scanf("%d", &n);
+
+	ptr = (int*)malloc(n*sizeof(int));
+
+	if (!ptr)
+	{
+		printf("\nNet mesta!!!\n");
+		exit(1);
+	}
+	for (i = 0; i < n; i++)
+	{
+		printf("[%d] = ", i);
+		scanf("%d", &ptr[i]);
+	}
+
+	free(ptr);
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	//return 0;
+}
+
+////////////////////////////////////////
 
 
 

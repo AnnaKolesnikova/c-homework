@@ -1,2 +1,46 @@
 Zadacha 2, str.108
 
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<String.h>
+
+
+
+void main()
+{
+	char x[100];
+	char *ptr;
+	int n, i, j;
+
+	printf("\nVvedite stroku: ");
+	gets_s(x);
+
+	n = strlen(x);
+
+	ptr = (char*)malloc((n + 1) * sizeof(char)); //for char string +1 symbol more for symbol of string end 
+
+	if (!ptr)
+	{
+		printf("\nNet mesta!!!\n");
+		exit(1);
+	}
+	for (j = 0, i = n; i = n -1; i--, j++)
+	{
+		ptr[j] = x[i];
+	}
+
+	ptr[j] = '\0';
+	puts(ptr);
+
+	free(ptr);
+
+	printf("\n\n\nThe end!!!\n");
+	_getch();
+	//return 0;
+}
+
+/////////////////////////////////

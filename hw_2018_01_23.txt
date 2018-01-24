@@ -48,20 +48,20 @@ void main()
 #define _CRT_SECURE_NO_WARNINGS
 
 #include<stdio.h>
-#include<conio.h>
 #include<stdlib.h>
-#include<time.h>
-#include<String.h>
+#include<conio.h>
+#include<malloc.h>
+#include<string.h>
 
 
 
-void main()
+int main()
 {
 	char x[100];
 	char *ptr;
 	int n, i, j;
 
-	printf("\nVvedite stroku: ");
+	printf("\nEnter string: ");
 	gets_s(x);
 
 	n = strlen(x);
@@ -70,10 +70,10 @@ void main()
 
 	if (!ptr)
 	{
-		printf("\nNet mesta!!!\n");
+		printf("\nMemory limit!!!\n");
 		exit(1);
 	}
-	for (j = 0, i = n; i = n -1; i--, j++)
+	for (j = 0, i = n; i >= 0; i--, j++)
 	{
 		ptr[j] = x[i];
 	}
@@ -85,7 +85,6 @@ void main()
 
 	printf("\n\n\nThe end!!!\n");
 	_getch();
-	//return 0;
+	return 0;
 }
-
 /////////////////////////////////

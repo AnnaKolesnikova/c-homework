@@ -1,0 +1,318 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+#include<locale.h>
+
+struct Product
+{
+	char ProductName[20];
+	char UnitName[20];
+	int quantity, year;
+};
+
+void EnterProduct(Product &Obj);
+void CopyProduct(Product &from, Product &to);
+void PrintProduct(Product &Obj);
+Product *AddToEnd(Product *M, int &k, Product &Obj);
+Product *SortByYear(Product *M, int k);
+Product *SortByProdName(Product *M, int k);
+void SearchProductByProdName(Product *M, int k, char *FN);
+void SearchPersonByQuantity(Product *M, int k, char *LN);
+void SearchProductByYear(Product *M, int k, int A);
+Product *DeleteProduct(Product *M, int &k, Product &Obj);
+void ShowAll(Product *M, int k);
+Product *DeleteAll(Product *M, int &k);
+
+void EnterProduct(Product &Obj)
+{
+	system("cls");
+	printf("Enter product name: \n\n");
+	fflush(stdin);
+	scanf("%s", &Obj.ProductName);
+
+	printf("Enter unit name: \n\n");
+	fflush(stdin);
+	scanf("%s", &Obj.UnitName);
+
+	printf("Enter quantity: \n\n");
+	fflush(stdin);
+	scanf("%d", Obj.quantity);
+
+	printf("Enter year: \n\n");
+	fflush(stdin);
+	scanf("%d", Obj.year);
+}
+
+Product *AddToEnd(Product *M, int &k, Product &Obj)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//третий - структура для добавления
+	//необходимо добавить структуру в конец массива структур
+	//для этого создается новый массив размером k+1
+	//в него поочередно копируются все i-тые эл-ты до k
+	//в k-тый элемент копируется структура, пришедшая пар-ром
+	//размер k повышается на 1
+	//возвращается указатель на новый массив
+}
+
+/*
+void CopyProduct(Product &from, Product &to)
+{
+	//необходимо скопировать соответствующие поля
+	//из структуры from в структуру to
+	//строки копируются через strcpy
+}
+
+void PrintProduct(Product &Obj)
+{
+	//необходимо вывести все поля структуры Obj на консоль
+}
+Product *AddToEnd(Product *M, int &k, Product &Obj)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//третий - структура для добавления
+	//необходимо добавить структуру в конец массива структур
+	//для этого создается новый массив размером k+1
+	//в него поочередно копируются все i-тые эл-ты до k
+	//в k-тый элемент копируется структура, пришедшая пар-ром
+	//размер k повышается на 1
+	//возвращается указатель на новый массив
+}
+Product *SortByYear(Product *M, int k)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//необходимо отсортировать имеющийся массив структур по возрастанию
+	//по возрастанию, сравнивая значения полей Age
+	//для этого используется двойной цикл for по i и j
+	//если Age из i-той структуры меньше, чем Age из j-той
+	//создается буферная структура, в нее копируется i-тая
+	//в i-тую копируется j-тая
+	//в j-тую копируется буферная
+	//функция возвращает указатель на отсортированный массив
+}
+Person *SortByProdName(Product *M, int k)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//необходимо отсортировать имеющийся массив структур по возрастанию
+	//по возрастанию сравнивая, значения полей FirstName
+	//в случае их равенства, сравнивая значения LastName
+	//сравнения строк производится с помощью strcmp
+	//для этого используется двойной цикл for по i и j
+	//если FirstName из i-той структуры меньше, чем FirstName из j-той
+	//или если FirstName из i-той структуры равен FirstName из j-той
+	//и LastName из i-той структуры меньше, чем LastName из j-той
+	//создается буферная структура, в нее копируется i-тая
+	//в i-тую копируется j-тая
+	//в j-тую копируется буферная
+	//функция возвращает указатель на отсортированный массив
+}
+void SearchProductByProdName(Product *M, int k, char *FN)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//третий параметр - строка с именем для поиска
+	//необходимо вывести на консоль все элементы из массива
+	//в которых FirstName совпадает с именем для поиска
+	//для этого прокручивается массив циклом for
+	//если поле FirstName i-той структуры равно имени для поиска 
+	//то вызывается ф-ция вывода структуры
+	//сравнения строковых переменных через strcmp
+}
+void SearchProductByQuantity(Product *M, int k, char *LN)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//третий параметр - строка с фамилией для поиска
+	//необходимо вывести на консоль все элементы из массива
+	//в которых LastName совпадает с именем для поиска
+	//для этого прокручивается массив циклом for
+	//если поле LastName i-той структуры равно фамилии для поиска 
+	//то вызывается ф-ция вывода структуры
+	//сравнения строковых переменных через strcmp
+}
+void SearchProductByYear(Product *M, int k, int A)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//третий параметр - возраст для поиска
+	//необходимо вывести на консоль все элементы из массива
+	//в которых Age совпадает с возрастом для поиска
+	//для этого прокручивается массив циклом for
+	//если поле Age i-той структуры равно возрасту для поиска 
+	//то вызывается ф-ция вывода структуры
+}
+Product *DeleteProduct(Product *M, int &k, Product &Obj)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//третий - структура для сравнения и удаления
+	//необходимо удалить из текущего массива
+	//все структуры совпадающие с пришедшей третьим пар-ром
+	//для этого создается новый массив структур
+	//задается переменная, отвечающая за его размер
+	//изначально новый массив нулевой, размер нулевой
+	//текущий массив прокручивается циклом for
+	//если поле FirstName из i-той структура из текущего массива
+	//не равно полю FirstName из структуры, пришедшей пар-ром
+	//и поле LastName из i-той структура из текущего массива
+	//не равно полю LastName из структуры, пришедшей пар-ром
+	//и поле Age из i-той структура из текущего массива
+	//не равно полю Age из структуры, пришедшей пар-ром
+	//то добавляет i-тую структуру из текущего массива
+	//в конец нового массива с помощью ранее написанной
+	//ф-ции добавления в конец
+	//сравнения строковых переменных через strcmp
+	//если условие не выполняется, то зачищает значение полей
+	//FirstName и LastName из i-той структуры текущего массива
+	//в конце переменной, отвечающей за размер текущего массива, 
+	//которая пришла вторым параметром присваиваем значение
+	//переменной, отвечающей за размер нового массива
+	//ф-ция отдает указатель на новый массив
+}
+void ShowAll(Product *M, int k)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//необходимо последовательно вывести все элемены массива на консоль
+	//текущий массив прокручивается циклом for
+	//с помощью ранее написанной ф-ции вывода структуры на консоль
+	//осуществляется вывод каждой i-той структуры массива
+}
+Product *DeleteAll(Product *M, int &k)
+{
+	//первый параметр - существующий массив структур
+	//второй параметр - размер массива
+	//необходимо последовательно очистить все элемены массива
+	//текущий массив прокручивается циклом for
+	//неоходимо зачистить значение полей
+	//FirstName и LastName из i-той структуры текущего массива
+	//в конце переменной, отвечающей за размер текущего массива, 
+	//которая пришла вторым параметром присваиваем нулевое значение
+	//ф-ция отдает указатель на пустой массив, т е ноль
+}
+*/
+
+/*int menu1()
+{
+
+}*/
+
+int menu()
+{
+	int z;
+	char str[50];
+	do
+	{
+		system("cls");			//console clearing
+		puts("\nVvedite:");
+		puts("1 - Add produst information");
+		puts("2 - Sort products by date/product name");
+		puts("3 - ");
+		puts("4 - Search products by name");
+		puts("5 - Search products by quantity");
+		puts("6 - Search products by year");
+		puts("7 - Delete product information");
+		puts("8 - Show all");
+		puts("9 - Delete all");
+		puts("0 - Exit");
+
+		printf(">>>");
+		fflush(stdin);
+		scanf("%s", str);
+
+		if(str[0] == '0')
+		{
+			return 0;	//program check if input is string
+		}
+		
+		z = atoi(str); //trasforms string number to real number
+
+		if(z == 0)
+		{
+			system("cls");
+			printf("ERROR!!!\n");
+			_getch();
+		}
+	}
+	while(z == 0);
+	return z;
+}
+
+int main()
+{
+	int n = 0;
+	Product * Mans = 0;
+	while(int z = menu())
+	{
+		switch(z)
+		{
+		/*
+		case 1:
+			Product P;
+			EnterProduct(P);
+			Mans = AddToEnd(Mans, n, P);
+			break;
+		case 2:
+			Mans = SortByAge(Mans, n);
+			break;
+		case 3:
+			Mans = SortByAlphabet(Mans, n);
+			break;
+		case 4:
+			char buf[80];
+			printf("Vvedite imya dlya poiska: ");
+			fflush(stdin);
+			gets(buf);
+			printf("\n");
+			SearchPersonByFirstname(Mans, n, buf);
+			break;
+		case 5:
+			char buf[80];
+			printf("Vvedite familiyu dlya poiska: ");
+			fflush(stdin);
+			gets(buf);
+			printf("\n");
+			SearchPersonByLastname(Mans, n, buf);
+			break;
+		case 6:
+			int z;
+			printf("Vvedite vozrast dlya poiska: ");
+			fflush(stdin);
+			scanf("%d", &z);
+			printf("\n");
+			SearchPersonByAge(Mans, n, z);
+			break;
+		case 7:
+			Person P;
+			EnterPerson(P);
+			Mans = DeletePerson(Mans, n, P);
+			break;
+		case 8:
+			ShowAll(Mans, n);
+			break;
+		case 9:
+			Mans = DeleteAll(Mans, n);
+			break;
+		*/
+		default:
+			puts("nevernyi vvod!");
+			break;
+		}
+		printf("\n\nPress any key...\n\n");
+		_getch();
+		system("cls");
+	}
+
+	printf("\n\nThe end!!!\n");
+	_getch();
+	return 0;
+}
+

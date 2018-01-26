@@ -1,0 +1,31 @@
+Zadacha 1, str.86
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<conio.h>
+
+void fff(int*p1, int*p2); // зн-я указателей на переменные
+void fff(int*p1, int*p2)
+{
+	printf("\nEnter two integers: ");
+	scanf("%d%d", p1, p2); //сами указатели
+}
+
+void main()
+{
+	int x, y;
+	
+	fff(&x, &y); //зн-я адресов переменных
+
+	printf("\nx = %d;\ny = %d;", x, y);
+
+	printf("\n\nThe end!!!");
+	_getch();
+	//return 0;
+}
+
+//////////////////////////////
+
+Zadacha 2, str.86
+

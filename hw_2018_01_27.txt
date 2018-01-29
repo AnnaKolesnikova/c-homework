@@ -1,0 +1,135 @@
+Zadacha b/n str.134
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<windows.h>
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+
+void main()
+{
+	FILE *k;
+	int x;
+	k = fopen("aaa.bbb", "r");
+
+	if(!k)
+	{
+		printf("\n\nHello!");
+		getch();
+		return;
+	}
+	fscanf(k, "%d", &x);
+	while(!feof(k))
+	{
+		printf("%d", x);
+		fscanf(k, "%d", &x);
+	}
+
+	fclose(k);
+	printf("\n\nThe end!!!\n");
+
+	return;
+}
+
+???
+
+Zadacha b/n str.134
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h> //директива препроцессора
+#include<conio.h>
+
+void main()
+{
+	FILE * k;  //указатель на структуру типа FILE
+	int x;
+	k = fopen("D:\\cxxx.txt", "rt");
+	if (!k)
+	{
+		printf("\nCan't open the file!");
+		return;
+	}
+
+	fscanf(k, "%d", &x);
+	while (!feof(k))
+	{
+		printf("%d", x);
+		fscanf(k, "%d", &x);
+	}
+	fclose(k);
+
+	printf("\n\nThe end!");
+	_getch();
+	//return 0;
+}
+
+////////////////////////////////
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h> //директива препроцессора
+#include<conio.h>
+
+void main()
+{
+	int account;
+	char name[30];
+	double balance;
+
+	FILE *cfPtr; //указатель на тип FILE
+	if ((cfPtr = fopen("D:\\clents.dat", "r")) == NULL)
+	{
+		printf("\nFile could not be opened\n");
+		return;
+	}
+	printf("%-10s%-13s%-17s\n", "Account", "Name", "Balance"); //заголовок
+	fscanf(cfPtr, "%d%s%lf", &account, name, &balance);
+
+	while (!feof(cfPtr))
+	{
+		printf("%-10d%-13s%7.2lf\n", account, name, balance);
+		fscanf(cfPtr, "%d%s%lf", &account, name, &balance);
+	}
+	_getch();
+	fclose(cfPtr);
+}
+
+////////////////////////////////
+
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h> //директива препроцессора
+#include<conio.h>
+
+void main()
+{
+	FILE *k;
+	char s[200];
+
+	k = fopen("aaa.bbb", "r");
+
+	if (!k)
+	{
+		printf("\n");
+		return;
+	}
+	while (!feof(k))
+	{
+		fgets(s, 100, k);
+		puts(s);
+	}
+
+	_getch();
+	fclose(k);
+}
+
+////////////////////////////////
+
+
+
+
+

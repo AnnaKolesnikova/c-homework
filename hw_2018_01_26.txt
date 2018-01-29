@@ -93,3 +93,57 @@ void main()
 
 //////////////////////////////
 
+Zadacha 1, str.86
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h> //директива препроцессора
+#include<stdlib.h>
+#include<conio.h>
+#include<time.h>
+
+void main()
+{
+	int n, x, a, b, k = 1;
+	a = 7;
+	b = 57;
+	srand(time(NULL));
+	n = 7 + rand() % 51;
+
+	printf("\nEnter number [%d,%d]", a, b);
+	scanf("%d", &x);
+
+	while (x != n)
+	{
+		k++;
+		if (x < n && x >= a)
+		{
+			a = x;
+		}
+		if (x > n && x <= b)
+		{
+			b = x;
+		}
+		else
+		{
+			printf("\nEnter correct number");
+		}
+		printf("\nEnter a number [%d,%d]", a, b);
+		scanf("%d", &x);
+	}
+	printf("\nYou guessed!\n", k);
+}
+
+
+
+
+}
+
+//////////////////////////////
+
+Zadacha 2, str.87
+
+
+
+
+
